@@ -32,7 +32,8 @@ namespace Naros_Ana_Maria_AdoptAPet.Pages.Pets
 
             Pet = await _context.Pet
                 .Include(b => b.Location)
-                .Include(b => b.PetCategories).ThenInclude(b => b.Category)
+                .Include(b => b.PetCategories).
+                ThenInclude(b => b.Category)
                 .AsNoTracking()
                  .FirstOrDefaultAsync(m => m.ID == id);
 
@@ -66,6 +67,7 @@ namespace Naros_Ana_Maria_AdoptAPet.Pages.Pets
             if (await TryUpdateModelAsync<Pet>(
             petToUpdate,
             "Pet",
+            i => i.Photo,
             i => i.Name, i => i.Breed,
             i => i.Age, i => i.AvailableDate, i => i.Location))
             {

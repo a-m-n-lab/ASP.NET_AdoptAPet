@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Naros_Ana_Maria_AdoptAPet.Data;
 using Naros_Ana_Maria_AdoptAPet.Models;
 
+
 namespace Naros_Ana_Maria_AdoptAPet.Pages.Pets
 {
     public class CreateModel : PetCategoriesPageModel
@@ -35,7 +36,7 @@ namespace Naros_Ana_Maria_AdoptAPet.Pages.Pets
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(string [] selectedCategories)
         {
- 
+                   
                 var newPet = new Pet();
                 if (selectedCategories != null)
                 {
@@ -52,8 +53,7 @@ namespace Naros_Ana_Maria_AdoptAPet.Pages.Pets
                 if (await TryUpdateModelAsync<Pet>(
                 newPet,
                 "Pet",
-                i => i.Name, i => i.Breed,
-                i => i.Age, i => i.AvailableDate, i => i.LocationID))
+                i => i.Name, i => i.Breed, i => i.Age, i => i.AvailableDate, i => i.LocationID, i => i.Photo))
                 {
                     _context.Pet.Add(newPet);
                     await _context.SaveChangesAsync();

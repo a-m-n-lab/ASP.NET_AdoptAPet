@@ -10,9 +10,14 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<img src="~/Images/adoption-kv.jpg" width="1200" />
 <table class="table">
     <thead>
         <tr>
+            <th>
+              @Html.DisplayNameFor(model => model.Pet[0].Photo)
+            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Pet[0].Name)
             </th>
@@ -43,6 +48,9 @@
         }
         <tr class="@selectedRow">
             <td>
+                <img src="~/Images/@Html.DisplayFor(modelItem => item.Photo)" height="150" width="250"/>
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
@@ -63,6 +71,7 @@
                     {
 
                         @: @category.Category.CategoryName <br>
+
 
                     }
                 }

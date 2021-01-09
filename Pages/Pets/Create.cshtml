@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Pet.Name" class="control-label"></label>
@@ -36,6 +36,13 @@
             <label asp-for="Pet.LocationID" class="control-label">Location</label>
             <select asp-for="Pet.LocationID" class="form-control" asp-items="ViewBag.LocationID">
             </select>
+                <div class="form-group">
+                    <label asp-for="Pet.Photo" class="control-label">Image</label>
+                    <input asp-for="Pet.Photo" type="file" />
+                    <span asp-validation-for="Pet.Photo" class="textdanger"></span>
+                </div>
+
+              
             <div class="form-group">
                 <div class="table">
                     <table>
@@ -65,13 +72,13 @@
                     <input type="submit" value="Create" class="btn btn-primary" />
                 </div>
             </form>
-</div>
-</div>
+        </div>
+    </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-page="Index">Back to List</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
