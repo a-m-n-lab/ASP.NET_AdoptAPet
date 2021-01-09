@@ -18,10 +18,12 @@ namespace Naros_Ana_Maria_AdoptAPet.Models
         public int Age { get; set; }
 
         [DataType(DataType.Date)]
+        [Display(Name = "Available Date")]
         public DateTime AvailableDate { get; set; }
-
-       public int LocationID { get; set; }
+       
+        public int LocationID { get; set; }
         public Location Location { get; set; }
+        [Display(Name = "Pet Type")]
         public ICollection<PetCategory> PetCategories{ get; set; }
     }
 }

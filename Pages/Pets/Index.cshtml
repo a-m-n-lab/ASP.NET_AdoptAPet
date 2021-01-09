@@ -61,12 +61,16 @@
                 @{
                     foreach (var category in item.PetCategories)
                     {
-                        @category.Category.ID @: @category.Category.CategoryName <br />
+                        @: @category.Category.CategoryName <br />
                     }
                 }
             </td>
 
             <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+
             </td>
         </tr>
 }
