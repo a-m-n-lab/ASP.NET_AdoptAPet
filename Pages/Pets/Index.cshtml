@@ -5,17 +5,25 @@
     ViewData["Title"] = "Pets";
 }
 
-<h1>Index</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
 <img src="~/Images/adoption-kv.jpg" width="1200" />
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+<h1 style="        text-align: center;
+        padding: 60px;
+        color: black;
+        font-size: 40px;
+        font-family: serif;} ">
+    Adopt me!
+</h1>
 <table class="table">
     <thead>
         <tr>
             <th>
-              @Html.DisplayNameFor(model => model.Pet[0].Photo)
+                @Html.DisplayNameFor(model => model.Pet[0].Photo)
             </th>
 
             <th>
@@ -40,50 +48,53 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.PetD.Pets) {
-        string selectedRow = "";
-        if (item.ID == Model.PetID)
+        @foreach (var item in Model.PetD.Pets)
         {
-        selectedRow = "table-success";
-        }
-        <tr class="@selectedRow">
-            <td>
-                <img src="~/Images/@Html.DisplayFor(modelItem => item.Photo)" height="150" width="250"/>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Breed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AvailableDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location.LocationName)
-            </td>
-            <td>
-                @{
-                    foreach (var category in item.PetCategories)
-                    {
+            string selectedRow = "";
+            if (item.ID == Model.PetID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    <img src="~/Images/@Html.DisplayFor(modelItem => item.Photo)" height="250" width="350" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Breed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvailableDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location.LocationName)
+                </td>
+                <td>
+                    @{
+                        foreach (var category in item.PetCategories)
+                        {
 
-                        @: @category.Category.CategoryName <br>
+                            @: @category.Category.CategoryName <br>
 
 
+
+
+                        }
                     }
-                }
-            </td>
+                </td>
 
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
 
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

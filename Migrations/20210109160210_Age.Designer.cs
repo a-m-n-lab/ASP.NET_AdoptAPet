@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Naros_Ana_Maria_AdoptAPet.Data;
 
 namespace Naros_Ana_Maria_AdoptAPet.Migrations
 {
     [DbContext(typeof(Naros_Ana_Maria_AdoptAPetContext))]
-    partial class Naros_Ana_Maria_AdoptAPetContextModelSnapshot : ModelSnapshot
+    [Migration("20210109160210_Age")]
+    partial class Age
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

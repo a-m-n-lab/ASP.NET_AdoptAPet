@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Pet.Age" class="control-label"></label>
-                <input asp-for="Pet.Age" class="form-control" />
+                <input asp-for="Pet.Age" class="form-control" /> <p> *Please state if Month or Years*</p>
                 <span asp-validation-for="Pet.Age" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -56,7 +56,7 @@
                                     @:</tr><tr>
                                     }
                                     @:<td>
-                                        <input type="checkbox"
+                                        <input type="radio"
                                                name="selectedCategories"
                                                value="@cat.CategoryID"
                                                @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />

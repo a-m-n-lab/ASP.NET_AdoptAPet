@@ -17,7 +17,8 @@ namespace Naros_Ana_Maria_AdoptAPet.Models
         public string Name { get; set; }
 
         public string Breed { get; set; }
-        public int Age { get; set; }
+       
+        public string Age { get; set; }
 
         [DataType(DataType.Date)]
         [Display(Name = "Available Date")]
