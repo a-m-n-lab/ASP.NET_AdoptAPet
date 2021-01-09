@@ -80,32 +80,7 @@ namespace Naros_Ana_Maria_AdoptAPet.Pages.Pets
             UpdatePetCategories(_context, selectedCategories, petToUpdate);
             PopulateAssignedCategoryData(_context, petToUpdate);
             return Page();
-        
-
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Attach(Pet).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PetExists(Pet.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
+       
         }
 
         private bool PetExists(int id)

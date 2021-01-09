@@ -62,15 +62,7 @@ namespace Naros_Ana_Maria_AdoptAPet.Pages.Pets
                 PopulateAssignedCategoryData(_context, newPet);
                 return Page();
             
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Pet.Add(Pet);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+          
         }
     }
 }
