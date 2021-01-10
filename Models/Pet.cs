@@ -17,7 +17,7 @@ namespace Naros_Ana_Maria_AdoptAPet.Models
         public string Name { get; set; }
 
         public string Breed { get; set; }
-       
+        [RegularExpression(@"^[0-9]+[years, months, Years, Months]+$", ErrorMessage = "Must contain years or months. Ex: 2 months")]
         public string Age { get; set; }
 
         [DataType(DataType.Date)]
